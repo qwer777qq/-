@@ -1,17 +1,19 @@
 /* 레이아웃: 모바일 우선 단일 컬럼(최대 760px). 상단 바 + 도구 칩 + 단계형 카드 + 하단 탭(모바일) */
+/* 색상: 한전ON 계산기 화면 기준 (빨강 #E81D21, 파랑 #246CE0, 본문 #222429, 회색 바탕 #F8F8F8, 상단 띠 #DCF4F8) */
 :root{
-  --paper:#F3F6F8; --card:#FFFFFF; --ink:#14213D; --ink-2:#4A5568; --line:#D9E0E7;
-  --volt:#FFC93C; --volt-ink:#14213D; --accent:#1F4FD1;
-  --t1:#2E9E6B; --t2:#E39A12; --t3:#D64541; --t4:#6B3FA0; --good:#1E8E5A;
-  --focus:#2563EB; --r-s:8px; --r-l:14px;
-  --font:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  --paper:#F8F8F8; --card:#FFFFFF; --ink:#222429; --ink-2:#62676E; --ink-3:#606F90; --line:#DDE1E8; --line-2:#D6DBE3;
+  --primary:#E81D21; --primary-ink:#DF1619; --blue:#246CE0; --band:#DCF4F8;
+  --volt:#E81D21; --accent:#246CE0;
+  --t1:#246CE0; --t2:#F08C00; --t3:#E81D21; --t4:#7A3FC2; --good:#246CE0;
+  --focus:#246CE0; --r-s:12px; --r-l:16px;
+  --font:"Pretendard GOV","Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
 }
 @media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){ --paper:#0F1626; --card:#172036; --ink:#EEF2F7; --ink-2:#A9B4C4; --line:#2A3650; --accent:#7AA7FF;
-    --t1:#43C18A; --t2:#F2B33D; --t3:#F06B66; --t4:#A07BDB; --good:#43C18A; --focus:#7AA7FF; color-scheme:dark }
+  :root:not([data-theme="light"]){ --paper:#121417; --card:#1C1F24; --ink:#EEF0F3; --ink-2:#A7ADB6; --ink-3:#9AA6C2; --line:#30353D; --line-2:#3A4049; --band:#14303A;
+    --blue:#6FA3FF; --accent:#6FA3FF; --t1:#6FA3FF; --good:#6FA3FF; --focus:#6FA3FF; --primary:#FF4A4E; --primary-ink:#FF6B6E; color-scheme:dark }
 }
-:root[data-theme="dark"]{ --paper:#0F1626; --card:#172036; --ink:#EEF2F7; --ink-2:#A9B4C4; --line:#2A3650; --accent:#7AA7FF;
-  --t1:#43C18A; --t2:#F2B33D; --t3:#F06B66; --t4:#A07BDB; --good:#43C18A; --focus:#7AA7FF; color-scheme:dark }
+:root[data-theme="dark"]{ --paper:#121417; --card:#1C1F24; --ink:#EEF0F3; --ink-2:#A7ADB6; --ink-3:#9AA6C2; --line:#30353D; --line-2:#3A4049; --band:#14303A;
+  --blue:#6FA3FF; --accent:#6FA3FF; --t1:#6FA3FF; --good:#6FA3FF; --focus:#6FA3FF; --primary:#FF4A4E; --primary-ink:#FF6B6E; color-scheme:dark }
 
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
@@ -150,3 +152,35 @@ footer p{margin:4px 0}
 
 .ad{margin:22px 0}
 @media (prefers-reduced-motion:no-preference){.marker{transition:transform .35s ease}}
+
+/* 한전ON 색감 적용 */
+.top{border-bottom:0}
+.band{background:var(--band)}
+.band .chips-nav{padding:10px 0 12px}
+.chips-nav a{background:rgba(255,255,255,.5);border-color:var(--ink);font-weight:500}
+.chips-nav a[aria-current="page"]{background:#fff;color:var(--ink);border-color:var(--ink);font-weight:800}
+.notice{font-size:12.5px;color:var(--ink-3);padding:6px 0 0}
+.bolt{background:var(--primary)}
+.btn{background:var(--primary);color:#fff;border-radius:var(--r-s);min-height:54px}
+.btn.line{background:#fff;color:var(--ink);border:1px solid var(--line-2)}
+.big-input{border:1px solid var(--line-2);border-radius:var(--r-s)}
+.big-input:focus-within{outline:none;border-color:var(--primary)}
+input[type=text],input[type=number],select{border-color:var(--line-2);border-radius:var(--r-s);height:54px}
+input[type=text]:focus,select:focus{outline:none;border-color:var(--primary)}
+.step{border-color:var(--line);border-radius:var(--r-l)}
+.step > summary .n{background:var(--primary);color:#fff}
+.seg{border-color:var(--line-2);border-radius:var(--r-s)}
+.seg input:checked + span{background:var(--ink);color:#fff}
+.chips button{border-color:var(--line-2);background:#fff}
+.total{color:var(--primary-ink)}
+.saving{color:var(--blue)}
+.breakdown tr.minus td.amt{color:var(--blue)}
+.breakdown tr.grand td.amt{color:var(--primary-ink)}
+.quick a{border-color:var(--line);color:var(--ink)}
+.quick svg{color:var(--blue)}
+article a,.sec a,.note a,.hint a{color:var(--blue)}
+.callout{border-left-color:var(--primary)}
+.tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
+.tabbar a[aria-current="page"]{color:var(--primary)}
+.rate-table thead th{background:#F4F6F9}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .chips-nav a{background:rgba(255,255,255,.06);border-color:var(--line-2)} :root:not([data-theme="light"]) .chips-nav a[aria-current="page"],:root:not([data-theme="light"]) .btn.line,:root:not([data-theme="light"]) .chips button{background:var(--card);color:var(--ink)}}
