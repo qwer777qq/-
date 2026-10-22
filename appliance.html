@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>가전제품 전기요금 계산 | 인덕션·에어컨·전기장판 한 달 요금</title>
+<meta name="description" content="인덕션, 에어컨, 냉장고, 전기장판 등 가전 소비전력과 사용시간으로 한 달 사용량과 늘어나는 전기요금을 누진제까지 반영해 계산합니다.">
+<link rel="canonical" href="https://elec.honeytipmagazine.com/appliance.html">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14213D">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="꿀팁매거진">
+<meta property="og:title" content="가전제품 전기요금 계산 | 인덕션·에어컨·전기장판 한 달 요금">
+<meta property="og:description" content="인덕션, 에어컨, 냉장고, 전기장판 등 가전 소비전력과 사용시간으로 한 달 사용량과 늘어나는 전기요금을 누진제까지 반영해 계산합니다.">
+<meta property="og:url" content="https://elec.honeytipmagazine.com/appliance.html">
+<meta property="og:image" content="https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "가전제품 전기요금 계산", "description": "인덕션, 에어컨, 냉장고, 전기장판 등 가전 소비전력과 사용시간으로 한 달 사용량과 늘어나는 전기요금을 누진제까지 반영해 계산합니다.", "image": "https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "inLanguage": "ko-KR", "mainEntityOfPage": "https://elec.honeytipmagazine.com/appliance.html", "author": {"@type": "Organization", "name": "꿀팁매거진", "url": "https://honeytipmagazine.com/"}, "publisher": {"@type": "Organization", "name": "꿀팁매거진", "url": "https://honeytipmagazine.com/"}}</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="bar"><a class="brand" href="index.html"><span class="bolt" aria-hidden="true"></span>전기요금 계산기</a><a class="home" href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></div>
+    <nav class="chips-nav" aria-label="전기요금 도구"><a href="index.html">요금 계산기</a><a href="discount.html">할인·감면</a><a href="appliance.html" aria-current="page">가전·인덕션</a><a href="moving.html">이사 정산</a><a href="rates.html">요금표 2026</a><a href="ev.html">전기차 충전</a><a href="guide.html">조회·납부</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<section class="hero">
+  <h1>가전제품 전기요금 계산 (인덕션·에어컨)</h1>
+  <p class="lede">집에서 쓰는 가전을 목록에 넣으면 한 달 사용량과 늘어나는 전기요금을 누진제까지 반영해 계산합니다. 인덕션, 에어컨, 전기장판처럼 많이 찾는 제품은 예시값이 들어 있습니다.</p>
+  <p class="basis">예시 소비전력·사용시간: 한전ON ‘사용제품 요금계산’ 기본값(2026-10-22 확인). 인덕션은 별도 예시</p>
+</section>
+
+<form class="card" id="apForm" novalidate>
+  <div class="row2">
+    <div class="field"><label for="baseKwh">가전 빼고 평소 사용량(kWh)</label><input id="baseKwh" type="text" inputmode="numeric" value="0"><p class="hint">모르면 0으로 두세요. 목록 합계만으로 요금을 계산합니다.</p></div>
+    <div class="field"><label for="month">사용 월</label><select id="month"></select></div>
+  </div>
+  <div class="seg" role="radiogroup" aria-label="계약 종류" style="margin-bottom:14px">
+    <label><input type="radio" name="type" value="low" checked><span>주택용 저압</span></label>
+    <label><input type="radio" name="type" value="high"><span>주택용 고압</span></label>
+  </div>
+  <div class="tbl-scroll">
+    <table class="appl-table">
+      <thead><tr><th style="min-width:130px">제품</th><th style="min-width:80px">소비전력(W)</th><th style="min-width:70px">사용시간</th><th style="min-width:96px">기준</th><th style="min-width:70px;text-align:right">월 kWh</th><th><span class="sr" hidden>삭제</span></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+  <div style="display:flex;gap:8px;margin:10px 0 16px;flex-wrap:wrap">
+    <select id="addSel" style="flex:1;min-width:160px" aria-label="추가할 제품"></select>
+    <button type="button" class="btn small" id="addBtn">제품 추가</button>
+  </div>
+  <div aria-live="polite">
+    <div class="total-line"><div class="total"><span id="total">0</span><small>원</small></div><div class="total-meta" id="sumKwh"></div></div>
+    <p class="saving" id="increase"></p>
+    <table class="breakdown" style="margin-top:10px"><tbody id="breakdown"></tbody></table>
+  </div>
+</form>
+
+
+
+<article>
+  <h2>가전 전기요금 계산 공식</h2>
+  <p>한 달 사용량(kWh)은 <strong>소비전력(W) × 하루 사용시간 × 사용일수 ÷ 1,000</strong>입니다. 주 단위로 쓰는 제품은 일주일 사용시간에 30/7을 곱해 한 달로 바꿉니다. 한전ON 사용제품 계산도 같은 방식입니다.</p>
+  <p>요금은 사용량에 단가를 바로 곱하면 틀립니다. 누진제 때문에 같은 가전이라도 집의 기존 사용량이 많을수록 비싸지기 때문입니다. 그래서 이 계산기는 ‘평소 사용량’을 넣으면 가전을 더했을 때 늘어나는 금액만 따로 보여줍니다.</p>
+  <h3>인덕션 전기요금</h3>
+  <p>인덕션은 화구 하나가 최대 2,000W 안팎이지만 끓는 뒤에는 출력을 낮춰 쓰는 경우가 많습니다. 2,000W로 하루 1시간, 한 달 30일을 가정하면 약 60kWh입니다. 평소 150kWh를 쓰는 집은 약 10,900원, 350kWh를 쓰는 집은 약 22,930원이 늘어납니다(10월, 저압 기준). 실제로는 출력 단계에 따라 이보다 적게 나오는 경우가 많습니다.</p>
+  <h3>에어컨 전기요금</h3>
+  <p>한전ON 예시값은 1,000W로 하루 6시간입니다. 한 달이면 180kWh입니다. 7~8월에는 누진 구간이 300kWh·450kWh로 넓어져 같은 사용량이라도 다른 달보다 덜 나옵니다. 인버터 에어컨은 설정 온도에 도달한 뒤 출력을 줄이므로 실제 사용량은 정격 계산보다 적은 경우가 많습니다.</p>
+  <h2 style="font-size:20px">확인한 자료</h2>
+  <ul class="sources"><li><a href="https://online.kepco.co.kr/PRM075D00" rel="noopener" target="_blank">한전ON 사용제품 요금계산</a>: 제품별 예시 소비전력·사용시간 (2026-10-22 확인)</li></ul>
+</article>
+
+</main>
+<footer>
+  <div class="wrap">
+    <nav aria-label="사이트 정보"><a href="about.html">운영자·문의</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></nav>
+    <p>운영: 노마드 마케터 · 사업자등록번호 603-42-04620 · camerongchamp@gmail.com</p>
+    <p>한국전력공사와 관계없는 정보 제공용 계산기입니다. 요금 기준일 2026-10-22.</p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="주요 메뉴"><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M16 11v4"/></svg>계산기</a><a href="discount.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.6"/></svg>할인</a><a href="rates.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM4 10h16M10 4v16"/></svg>요금표</a><a href="guide.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>조회·납부</a><a href="appliance.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>더보기</a></nav>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id);}, fmt=UI.fmt;
+  UI.fillMonths($('month'));
+  var LIST=[{name:'인덕션 1구',w:2000,h:1,p:'day'}].concat(ElecCalc.APPLIANCES).concat([{name:'직접 입력',w:0,h:1,p:'day'}]);
+  $('addSel').innerHTML=LIST.map(function(a,i){return '<option value="'+i+'">'+a.name+'</option>';}).join('');
+  var rows=[];
+  var PER={day:'하루',week:'일주일',month:'한 달'};
+  function rowHTML(a,i){
+    return '<tr data-i="'+i+'"><td><input aria-label="제품 이름" data-k="name" value="'+a.name+'"></td>'+
+      '<td><input aria-label="소비전력(W)" inputmode="numeric" data-k="w" value="'+a.w+'"></td>'+
+      '<td><input aria-label="사용시간" inputmode="decimal" data-k="h" value="'+a.h+'"></td>'+
+      '<td><select aria-label="사용시간 기준" data-k="p"><option value="day"'+(a.p==='day'?' selected':'')+'>하루</option><option value="week"'+(a.p==='week'?' selected':'')+'>일주일</option><option value="month"'+(a.p==='month'?' selected':'')+'>한 달</option></select></td>'+
+      '<td class="num" style="text-align:right;font-weight:700" data-out>'+'</td>'+
+      '<td><button type="button" class="del" aria-label="'+a.name+' 삭제" data-del>×</button></td></tr>';
+  }
+  function draw(){ $('rows').innerHTML=rows.map(rowHTML).join(''); calc(); }
+  function calc(){
+    var sum=0;
+    [].forEach.call($('rows').querySelectorAll('tr'),function(tr,i){ var a=rows[i]; var k=ElecCalc.applianceKwh(a.w,a.h,a.p); sum+=k; tr.querySelector('[data-out]').textContent=(Math.round(k*10)/10).toLocaleString('ko-KR'); });
+    var base=UI.num($('baseKwh').value)||0, opts={type:document.querySelector('input[name=type]:checked').value,month:+$('month').value};
+    var total=Math.round(base+sum), r=ElecCalc.calc(total,opts), b=ElecCalc.calc(base,opts);
+    $('total').textContent=fmt(r.total); $('sumKwh').textContent='가전 합계 '+(Math.round(sum*10)/10).toLocaleString('ko-KR')+'kWh, 전체 '+fmt(total)+'kWh';
+    $('increase').textContent= base>0 ? '가전 때문에 늘어나는 요금 '+fmt(r.total-b.total)+'원 (평소 '+fmt(b.total)+'원)' : '';
+    $('breakdown').innerHTML=UI.breakdownRows(r);
+  }
+  $('rows').addEventListener('input',function(e){ var tr=e.target.closest('tr'); if(!tr) return; var i=[].indexOf.call($('rows').children,tr), k=e.target.dataset.k; if(k==='name') rows[i].name=e.target.value; else if(k==='p') rows[i].p=e.target.value; else rows[i][k]=UI.num(e.target.value)||0; calc(); });
+  $('rows').addEventListener('change',function(e){ if(e.target.dataset.k==='p'){ var i=[].indexOf.call($('rows').children,e.target.closest('tr')); rows[i].p=e.target.value; calc(); } });
+  $('rows').addEventListener('click',function(e){ if(e.target.hasAttribute('data-del')){ var i=[].indexOf.call($('rows').children,e.target.closest('tr')); rows.splice(i,1); draw(); } });
+  $('addBtn').addEventListener('click',function(){ var a=LIST[+$('addSel').value]; rows.push({name:a.name,w:a.w,h:a.h,p:a.p}); draw(); var last=$('rows').lastElementChild; if(last) last.querySelector(a.w? '[data-k=h]':'[data-k=w]').focus(); });
+  $('baseKwh').addEventListener('input',function(){this.value=this.value.replace(/[^\d]/g,'');calc();});
+  $('month').addEventListener('change',calc);
+  document.querySelectorAll('input[name=type]').forEach(function(e){e.addEventListener('change',calc);});
+  $('apForm').addEventListener('submit',function(e){e.preventDefault();});
+  ['인덕션 1구','에어컨','냉장고','세탁기','TV'].forEach(function(n){ var a=LIST.find(function(x){return x.name===n;}); rows.push({name:a.name,w:a.w,h:a.h,p:a.p}); });
+  draw();
+})();
+</script>
+
+</body>
+</html>

@@ -2,32 +2,26 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>전기요금 계산기 2026 | 한전 누진제 구간·부가세까지 kWh로 계산</title>
-<meta name="description" content="사용량(kWh)과 월만 넣으면 2026년 한전 주택용 전기요금을 계산합니다. 누진제 구간, 하계 완화, 슈퍼유저, 기후환경요금·연료비조정액·부가세·전력기금까지 한전ON과 같은 방식으로 항목별로 보여줍니다.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>전기요금 계산기 2026 | 한전 누진제·복지할인·부가세까지 kWh로 계산</title>
+<meta name="description" content="사용량(kWh)과 월만 넣으면 2026년 한전 주택용 전기요금을 계산합니다. 누진제 구간, 하계 완화, 슈퍼유저, 복지·대가족 할인, 자동이체 할인까지 한전ON과 같은 방식으로 항목별로 보여줍니다.">
 <link rel="canonical" href="https://elec.honeytipmagazine.com/">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#14213D">
-
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="꿀팁매거진">
-<meta property="og:title" content="전기요금 계산기 2026 | 한전 누진제 구간·부가세까지 kWh로 계산">
-<meta property="og:description" content="kWh만 입력하면 한전ON과 같은 방식으로 청구 예상액을 항목별로 계산합니다.">
+<meta property="og:title" content="전기요금 계산기 2026 | 한전 누진제·복지할인·부가세까지 kWh로 계산">
+<meta property="og:description" content="사용량(kWh)과 월만 넣으면 2026년 한전 주택용 전기요금을 계산합니다. 누진제 구간, 하계 완화, 슈퍼유저, 복지·대가족 할인, 자동이체 할인까지 한전ON과 같은 방식으로 항목별로 보여줍니다.">
 <meta property="og:url" content="https://elec.honeytipmagazine.com/">
 <meta property="og:image" content="https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="2026 전기요금 계산기 - 누진제 구간별 요금 계산">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="전기요금 계산기 2026">
-<meta name="twitter:description" content="kWh만 입력하면 누진제·부가세·전력기금까지 계산합니다.">
-<meta name="twitter:image" content="https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-
+<link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -74,250 +68,92 @@
   ]
 }
 </script>
-
-<style>
-:root{
-  --paper:#F3F6F8;
-  --card:#FFFFFF;
-  --ink:#14213D;
-  --ink-2:#4A5568;
-  --line:#D9E0E7;
-  --volt:#FFC93C;
-  --t1:#2E9E6B;
-  --t2:#E39A12;
-  --t3:#D64541;
-  --t4:#6B3FA0;
-  --focus:#2563EB;
-  --radius-s:6px;
-  --radius-l:14px;
-}
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --paper:#0F1626; --card:#172036; --ink:#EEF2F7; --ink-2:#A9B4C4; --line:#2A3650;
-    --t1:#43C18A; --t2:#F2B33D; --t3:#F06B66; --t4:#A07BDB; --focus:#7AA7FF;
-  }
-}
-:root[data-theme="dark"]{
-  --paper:#0F1626; --card:#172036; --ink:#EEF2F7; --ink-2:#A9B4C4; --line:#2A3650;
-  --t1:#43C18A; --t2:#F2B33D; --t3:#F06B66; --t4:#A07BDB; --focus:#7AA7FF;
-}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
-  font-size:17px;line-height:1.7;word-break:keep-all;overflow-wrap:anywhere;
-}
-a{color:inherit;text-underline-offset:3px}
-:focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:4px}
-.wrap{max-width:760px;margin:0 auto;padding:0 16px}
-
-/* top bar */
-.top{border-bottom:1px solid var(--line);background:var(--card)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
-.brand{font-weight:800;text-decoration:none;letter-spacing:-.02em}
-.brand span{display:inline-block;width:10px;height:18px;background:var(--volt);clip-path:polygon(60% 0,0 58%,45% 58%,30% 100%,100% 38%,55% 38%);margin-right:8px;vertical-align:-2px}
-.top nav a{font-size:15px;color:var(--ink-2);text-decoration:none}
-
-/* hero */
-.hero{padding:36px 0 8px}
-h1{font-size:clamp(28px,6.4vw,42px);line-height:1.18;letter-spacing:-.035em;margin:0 0 12px;font-weight:850}
-.lede{color:var(--ink-2);margin:0 0 6px;max-width:36em}
-.basis{font-size:14px;color:var(--ink-2);margin:0}
-
-/* calculator */
-.calc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-l);padding:22px 20px;margin:22px 0 10px}
-.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media (max-width:560px){.row{grid-template-columns:1fr}}
-label,.legend{display:block;font-size:15px;font-weight:700;margin-bottom:6px}
-.field{margin-bottom:14px}
-.kwh-input{display:flex;align-items:stretch;border:2px solid var(--ink);border-radius:var(--radius-s);background:var(--card);overflow:hidden}
-.kwh-input input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:inherit;font-size:30px;font-weight:800;padding:8px 12px;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.kwh-input input:focus{outline:none}
-.kwh-input:focus-within{outline:3px solid var(--focus);outline-offset:2px}
-.kwh-input .unit{display:flex;align-items:center;padding:0 14px;font-weight:700;color:var(--ink-2);border-left:1px solid var(--line)}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-.chips button{font:inherit;font-size:14px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:4px 12px;cursor:pointer}
-.chips button:hover{border-color:var(--ink)}
-select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);padding:10px 12px;height:48px}
-.seg{display:flex;border:1px solid var(--line);border-radius:var(--radius-s);overflow:hidden;height:48px}
-.seg label{flex:1;margin:0;display:flex;align-items:center;justify-content:center;font-weight:600;cursor:pointer;font-size:15px}
-.seg input{position:absolute;opacity:0;pointer-events:none}
-.seg input:checked + span{background:var(--ink);color:var(--paper)}
-.seg span{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
-.seg input:focus-visible + span{outline:3px solid var(--focus);outline-offset:-3px}
-.hint{font-size:13.5px;color:var(--ink-2);margin:6px 0 0}
-details.meter{margin:4px 0 0;font-size:15px}
-details.meter summary{cursor:pointer;color:var(--ink-2)}
-.meter-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end;margin-top:10px}
-.meter-grid input{width:100%;font:inherit;border:1px solid var(--line);border-radius:var(--radius-s);padding:8px 10px;height:44px;background:var(--card);color:var(--ink)}
-.meter-grid button,.btn-line{font:inherit;font-size:15px;font-weight:700;height:44px;padding:0 14px;border-radius:var(--radius-s);border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
-
-/* result: the stepped meter is the signature element */
-.result{margin-top:20px;border-top:1px dashed var(--line);padding-top:18px}
-.total-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
-.total{font-size:clamp(40px,11vw,58px);font-weight:900;letter-spacing:-.04em;font-variant-numeric:tabular-nums;line-height:1}
-.total small{font-size:.42em;font-weight:700;margin-left:2px}
-.total-meta{color:var(--ink-2);font-size:15px}
-.stage-pill{display:inline-block;font-size:14px;font-weight:800;padding:2px 10px;border-radius:999px;color:#fff;vertical-align:3px}
-
-.stairs{margin:22px 0 6px}
-.stairs svg{display:block;width:100%;height:auto;overflow:visible}
-.stairs-caption{font-size:14px;color:var(--ink-2);margin:6px 0 0}
-
-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
-.breakdown{margin-top:18px;font-size:15.5px}
-.breakdown th,.breakdown td{padding:8px 4px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
-.breakdown td.num{text-align:right;white-space:nowrap;font-weight:700}
-.breakdown tr.sum td{font-weight:800;border-bottom:2px solid var(--ink)}
-.breakdown tr.grand td{font-size:17px;font-weight:900;border-bottom:0}
-.breakdown .sub{display:block;font-size:13px;color:var(--ink-2);font-weight:400}
-.compare{margin-top:14px;font-size:15px;color:var(--ink-2)}
-
-/* appliance */
-.appl{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-l);padding:20px;margin:18px 0}
-.appl h2{margin-top:0}
-.appl-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:10px}
-@media (max-width:620px){.appl-grid{grid-template-columns:1fr 1fr}}
-.appl-grid input{width:100%;font:inherit;border:1px solid var(--line);border-radius:var(--radius-s);padding:8px 10px;height:48px;background:var(--card);color:var(--ink);font-variant-numeric:tabular-nums}
-.appl-out{margin:14px 0 0;font-size:16px}
-.appl-out strong{font-size:22px;letter-spacing:-.02em}
-
-/* ad slot */
-.ad{margin:24px 0;min-height:0}
-
-/* article */
-article{padding:12px 0 20px}
-article h2{font-size:clamp(22px,4.6vw,27px);line-height:1.3;letter-spacing:-.03em;margin:44px 0 12px;font-weight:800}
-article h3{font-size:19px;margin:28px 0 8px;letter-spacing:-.02em}
-article p,article li{max-width:38em}
-article ol,article ul{padding-left:1.3em}
-.rate-table{margin:14px 0;font-size:15.5px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);overflow:hidden}
-.rate-table th,.rate-table td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:right}
-.rate-table th:first-child,.rate-table td:first-child{text-align:left}
-.rate-table thead th{background:var(--paper);font-size:14px}
-.rate-table tr:last-child td{border-bottom:0}
-.tbl-scroll{overflow-x:auto}
-.tier-dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:0}
-.note{font-size:14.5px;color:var(--ink-2)}
-.faq details{border-bottom:1px solid var(--line);padding:12px 0}
-.faq summary{cursor:pointer;font-weight:700;font-size:17px}
-.faq details p{margin:8px 0 0}
-.sources{font-size:14.5px;color:var(--ink-2)}
-.sources li{margin-bottom:4px}
-
-footer{border-top:1px solid var(--line);background:var(--card);padding:24px 0 40px;font-size:14px;color:var(--ink-2);margin-top:30px}
-footer nav{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:10px}
-footer p{margin:4px 0}
-
-@media (prefers-reduced-motion:no-preference){
-  .marker{transition:transform .35s ease}
-}
-</style>
 </head>
 <body>
-
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="https://honeytipmagazine.com/"><span aria-hidden="true"></span>꿀팁매거진</a>
-    <nav aria-label="바로가기"><a href="#how">계산 방법</a> &nbsp; <a href="#rates">요금표</a> &nbsp; <a href="#faq">자주 묻는 질문</a></nav>
+    <div class="bar"><a class="brand" href="index.html"><span class="bolt" aria-hidden="true"></span>전기요금 계산기</a><a class="home" href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></div>
+    <nav class="chips-nav" aria-label="전기요금 도구"><a href="index.html" aria-current="page">요금 계산기</a><a href="discount.html">할인·감면</a><a href="appliance.html">가전·인덕션</a><a href="moving.html">이사 정산</a><a href="rates.html">요금표 2026</a><a href="ev.html">전기차 충전</a><a href="guide.html">조회·납부</a></nav>
   </div>
 </header>
-
 <main class="wrap">
-  <section class="hero">
-    <h1>전기요금 계산기 2026</h1>
-    <p class="lede">한 달 사용량(kWh)과 사용 월만 넣으면 한전 주택용 누진제로 청구 예상액을 계산합니다. 기본요금부터 부가세, 전력기금까지 고지서와 같은 순서로 보여줍니다.</p>
-    <p class="basis">적용 기준: 2026년 4분기 한전 주택용 요금(연료비조정단가 +5원/kWh, 동결), 2026년 10월 22일 확인</p>
-  </section>
+<section class="hero">
+  <h1>전기요금 계산기 2026</h1>
+  <p class="lede">한 달 사용량(kWh)만 넣으면 한전 주택용 누진제로 청구 예상액을 계산합니다. 복지·대가족 할인과 자동이체 할인까지 고지서 순서대로 보여줍니다.</p>
+  <p class="basis">적용 기준: 2026년 4분기 주택용 요금(연료비조정단가 +5원/kWh, 동결). 2026년 10월 22일 한전ON 계산기와 49개 사례 대조 완료</p>
+</section>
 
-  <form class="calc" id="calcForm" novalidate aria-labelledby="calcTitle">
-    <h2 id="calcTitle" class="legend" style="font-size:18px;margin:0 0 14px">이번 달 전기요금 계산</h2>
+<nav class="quick" aria-label="자주 찾는 서비스">
+  <a href="discount.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.6"/></svg>할인·감면</a>
+  <a href="appliance.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6h2"/></svg>가전·인덕션</a>
+  <a href="moving.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.7"/><circle cx="17" cy="18" r="1.7"/></svg>이사 정산</a>
+  <a href="rates.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM4 10h16M10 4v16"/></svg>요금표 2026</a>
+  <a href="ev.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 16V8l2-3h7l2 3v8z"/><path d="M16 10h2a2 2 0 012 2v3"/><path d="M10 8l-1.5 3H11l-1.5 3"/></svg>전기차 충전</a>
+  <a href="guide.html#lookup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>요금 조회</a>
+  <a href="guide.html#pay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18M7 15h4"/></svg>납부·카드</a>
+  <a href="guide.html#center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 4h4l2 5-3 2a11 11 0 005 5l2-3 5 2v4a2 2 0 01-2 2A17 17 0 013 6a2 2 0 012-2z"/></svg>고객센터 123</a>
+</nav>
 
-    <div class="field">
-      <label for="kwh">한 달 사용량</label>
-      <div class="kwh-input">
-        <input id="kwh" name="kwh" type="text" inputmode="numeric" autocomplete="off" value="350" aria-describedby="kwhHint">
-        <span class="unit">kWh</span>
+<form id="calcForm" novalidate>
+  <details class="step" open>
+    <summary><span class="n">1</span>계약 종류<span class="meta" id="sumType">주택용 저압</span></summary>
+    <div class="body">
+      <div class="seg" role="radiogroup" aria-label="계약 종류">
+        <label><input type="radio" name="type" value="low" checked><span>주택용 저압<small>단독·다세대·원룸</small></span></label>
+        <label><input type="radio" name="type" value="high"><span>주택용 고압<small>아파트 단지 다수</small></span></label>
       </div>
-      <div class="chips" role="group" aria-label="자주 쓰는 사용량">
-        <button type="button" data-kwh="200">200</button>
-        <button type="button" data-kwh="300">300</button>
-        <button type="button" data-kwh="400">400</button>
-        <button type="button" data-kwh="450">450</button>
-        <button type="button" data-kwh="600">600</button>
-      </div>
-      <p class="hint" id="kwhHint">고지서의 ‘당월 사용량’을 넣으세요. 4인 가구 평소 사용량은 대체로 300~400kWh 안팎입니다.</p>
-      <details class="meter">
-        <summary>계량기 지침으로 계산하기</summary>
-        <div class="meter-grid">
-          <div><label for="prevRead">전월 지침</label><input id="prevRead" inputmode="numeric" placeholder="예: 12480"></div>
-          <div><label for="currRead">당월 지침</label><input id="currRead" inputmode="numeric" placeholder="예: 12830"></div>
-          <button type="button" id="applyMeter">사용량 넣기</button>
-        </div>
-        <p class="hint" id="meterMsg" role="status"></p>
-      </details>
+      <p class="hint">모르겠다면 고지서의 ‘계약종별’을 확인하세요. 아파트는 고압인 경우가 많지만 단지마다 다릅니다.</p>
     </div>
+  </details>
 
-    <div class="row">
+  <details class="step" open>
+    <summary><span class="n">2</span>조건 선택<span class="meta" id="sumCond"></span></summary>
+    <div class="body">
       <div class="field">
-        <label for="month">사용 월</label>
-        <select id="month" name="month">
-          <option value="1">1월 (동계)</option><option value="2">2월 (동계)</option>
-          <option value="3">3월</option><option value="4">4월</option><option value="5">5월</option><option value="6">6월</option>
-          <option value="7">7월 (하계 완화)</option><option value="8">8월 (하계 완화)</option>
-          <option value="9">9월</option><option value="10">10월</option><option value="11">11월</option>
-          <option value="12">12월 (동계)</option>
-        </select>
-      </div>
-      <div class="field">
-        <span class="legend" id="typeLabel">계약 종류</span>
-        <div class="seg" role="radiogroup" aria-labelledby="typeLabel">
-          <label><input type="radio" name="type" value="low" checked><span>저압 (단독·다세대)</span></label>
-          <label><input type="radio" name="type" value="high"><span>고압 (아파트 다수)</span></label>
+        <label for="kwh">한 달 사용량</label>
+        <div class="big-input"><input id="kwh" type="text" inputmode="numeric" autocomplete="off" value="350" aria-describedby="kwhHint"><span class="unit">kWh</span></div>
+        <div class="chips" role="group" aria-label="자주 쓰는 사용량">
+          <button type="button" data-kwh="200">200</button><button type="button" data-kwh="300">300</button><button type="button" data-kwh="400">400</button><button type="button" data-kwh="450">450</button><button type="button" data-kwh="600">600</button>
         </div>
+        <p class="hint" id="kwhHint">고지서의 ‘당월 사용량’을 넣으세요. 계량기 지침으로 계산하려면 <a href="moving.html">이사·지침 계산</a>을 쓰세요.</p>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="month">사용 월</label><select id="month"></select></div>
+        <div class="field"><label for="family">대가족·생명유지장치</label><select id="family"></select></div>
+      </div>
+      <div class="field"><label for="welfare">복지할인</label><select id="welfare"></select>
+        <p class="hint">할인 금액과 대상은 <a href="discount.html">할인·감면 안내</a>에 정리했습니다. 실제 적용은 한전 신청·자격 확인 후입니다.</p></div>
+      <div class="field">
+        <label class="check"><input type="checkbox" id="autopay"> 자동이체 할인 적용 (전월 납부액의 1%, 최대 1,000원)</label>
+        <div id="prevWrap" hidden style="margin-top:8px"><label for="prevBill">전월 납부액(원)</label><input id="prevBill" type="text" inputmode="numeric" placeholder="예: 70640"></div>
       </div>
     </div>
+  </details>
 
-    <div class="result" id="result" aria-live="polite">
+  <details class="step" open>
+    <summary><span class="n">3</span>계산 결과</summary>
+    <div class="body" aria-live="polite">
       <div class="total-line">
         <div class="total"><span id="total">70,640</span><small>원</small></div>
-        <div class="total-meta"><span class="stage-pill" id="stagePill" style="background:var(--t2)">2단계</span> <span id="perKwh"></span></div>
+        <div class="total-meta"><span class="pill" id="stagePill" style="background:var(--t2)">2단계</span> <span id="perKwh"></span></div>
       </div>
+      <p class="saving" id="saving" hidden></p>
       <div class="stairs" id="stairs" aria-hidden="true"></div>
       <p class="stairs-caption" id="toNext"></p>
-
-      <table class="breakdown" aria-label="요금 항목별 내역">
-        <tbody id="breakdown"></tbody>
-      </table>
-      <p class="compare" id="compare"></p>
+      <p class="hint" id="compare"></p>
     </div>
-  </form>
-  <p class="note">복지·대가족 할인, 자동이체 할인, TV수신료, 일수 계산은 빠져 있습니다. 할인 대상이라면 <a href="https://online.kepco.co.kr/" rel="noopener" target="_blank">한전ON</a> 계산기로 한 번 더 확인하세요.</p>
+  </details>
 
-  <section class="appl" aria-labelledby="applTitle">
-    <h2 id="applTitle" style="font-size:20px">가전 하나 더 쓰면 얼마나 늘까</h2>
-    <p class="hint" style="margin-top:-4px">위에서 입력한 사용량에 가전 사용량을 더해 늘어나는 요금만 계산합니다. 소비전력은 제품 라벨의 정격소비전력(W)을 넣으세요.</p>
-    <div class="appl-grid">
-      <div><label for="aName">가전</label>
-        <select id="aName">
-          <option value="2000" selected>인덕션 1구 (예: 2,000W)</option>
-          <option value="1000">에어컨 (예: 1,000W)</option>
-          <option value="1500">전기히터 (예: 1,500W)</option>
-          <option value="1000">전기밥솥 취사 (예: 1,000W)</option>
-          <option value="2500">의류건조기 (예: 2,500W)</option>
-          <option value="0">직접 입력</option>
-        </select></div>
-      <div><label for="aW">소비전력(W)</label><input id="aW" inputmode="numeric" value="2000"></div>
-      <div><label for="aH">하루 사용(시간)</label><input id="aH" inputmode="decimal" value="1"></div>
-      <div><label for="aD">한 달 사용일</label><input id="aD" inputmode="numeric" value="30"></div>
-    </div>
-    <p class="appl-out" id="applOut" role="status"></p>
-    <p class="hint">에어컨·냉장고처럼 출력이 오르내리는 제품은 실제 사용량이 정격소비전력 계산보다 적게 나오는 경우가 많습니다.</p>
-  </section>
+  <details class="step">
+    <summary><span class="n">4</span>상세 계산 내역<span class="meta">고지서 항목 순서</span></summary>
+    <div class="body"><table class="breakdown" aria-label="요금 항목별 내역"><tbody id="breakdown"></tbody></table></div>
+  </details>
+</form>
+<p class="note">TV수신료, 검침 기간 일수 계산, 아파트 공용전기는 빠져 있습니다. 실제 청구액은 <a href="guide.html#lookup">한전ON 요금 조회</a>로 확인하세요.</p>
 
 
-  <article id="article">
+
+<article id="article">
     <h2 id="how">전기요금 계산 방법, 고지서가 만들어지는 순서</h2>
     <p>주택용 전기요금은 쓴 만큼 단순 곱하기로 나오지 않습니다. 한전ON 전기요금계산기가 쓰는 순서를 그대로 따라가면 아래 여섯 단계입니다. 이 계산기도 같은 순서와 같은 끝자리 처리 규칙을 씁니다.</p>
     <ol>
@@ -367,10 +203,10 @@ footer p{margin:4px 0}
     <p>단독주택이나 다세대주택처럼 한전에서 저압으로 바로 받는 집은 주택용 저압입니다. 아파트는 단지가 고압으로 받아 변압해 쓰는 경우가 많아 주택용 고압이 적용되곤 합니다. 고압은 한전 변압 설비를 덜 쓰기 때문에 단가가 낮아서, 같은 350kWh라도 평상시 기준 60,010원으로 저압보다 1만 원가량 적습니다. 다만 단지마다 계약 방식이 달라 관리비 고지서나 한전ON 고객정보로 확인하는 것이 정확합니다.</p>
 
     <h2>인덕션·에어컨 전기요금은 따로 계산해야 정확하다</h2>
-    <p>가전 하나의 전기요금은 ‘소비전력 × 사용시간 × 단가’로 끝나지 않습니다. 누진제 때문에 같은 가전이라도 집의 기존 사용량이 많을수록 비싸집니다. 예를 들어 2,000W 인덕션을 하루 1시간씩 한 달 쓰면 약 60kWh가 늘어나는데, 평소 150kWh를 쓰던 집은 약 10,900원, 350kWh를 쓰던 집은 약 22,930원이 늘어납니다. 위의 가전 계산기는 이 차이를 반영해 ‘늘어나는 금액’만 보여줍니다.</p>
+    <p>가전 하나의 전기요금은 ‘소비전력 × 사용시간 × 단가’로 끝나지 않습니다. 누진제 때문에 같은 가전이라도 집의 기존 사용량이 많을수록 비싸집니다. 예를 들어 2,000W 인덕션을 하루 1시간씩 한 달 쓰면 약 60kWh가 늘어나는데, 평소 150kWh를 쓰던 집은 약 10,900원, 350kWh를 쓰던 집은 약 22,930원이 늘어납니다. <a href="appliance.html">가전·인덕션 요금 계산</a>은 이 차이를 반영해 ‘늘어나는 금액’만 보여줍니다.</p>
 
     <h2>전기요금 조회·납부는 한전ON에서</h2>
-    <p>실제 청구액과 사용량, 고객번호 조회, 카드납부, 자동이체 신청은 한전 공식 서비스인 한전ON 웹사이트와 앱에서 할 수 있습니다. 고객번호는 종이·모바일 고지서에 적혀 있고, 이사 정산이나 명의변경도 같은 곳에서 신청합니다. 전화 상담은 국번 없이 123입니다. 이 페이지는 로그인이나 고객번호를 요구하지 않으며, 입력한 숫자는 브라우저 안에서만 계산됩니다.</p>
+    <p>실제 청구액과 사용량, 고객번호 조회, 카드납부, 자동이체 신청은 한전 공식 서비스인 한전ON 웹사이트와 앱에서 할 수 있습니다. 고객번호는 종이·모바일 고지서에 적혀 있고, 이사 정산이나 명의변경도 같은 곳에서 신청합니다. 전화 상담은 국번 없이 123입니다. 자세한 순서는 <a href="guide.html">조회·납부 안내</a>에 정리했습니다. 이 페이지는 로그인이나 고객번호를 요구하지 않으며, 입력한 숫자는 브라우저 안에서만 계산됩니다.</p>
 
     <section class="faq" id="faq" aria-labelledby="faqTitle">
       <h2 id="faqTitle">자주 묻는 질문</h2>
@@ -394,163 +230,50 @@ footer p{margin:4px 0}
     </ul>
     <p class="note">이 계산기는 참고용입니다. 요금표가 바뀌면 이 페이지의 적용 기준 날짜를 함께 고칩니다.</p>
   </article>
-</main>
 
+</main>
 <footer>
   <div class="wrap">
-    <nav aria-label="사이트 정보">
-      <a href="about.html">운영자·문의</a>
-      <a href="privacy.html">개인정보처리방침</a>
-      <a href="terms.html">이용약관</a>
-      <a href="https://honeytipmagazine.com/">꿀팁매거진 홈</a>
-    </nav>
+    <nav aria-label="사이트 정보"><a href="about.html">운영자·문의</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></nav>
     <p>운영: 노마드 마케터 · 사업자등록번호 603-42-04620 · camerongchamp@gmail.com</p>
-    <p>한국전력공사와 관계없는 정보 제공용 계산기입니다.</p>
+    <p>한국전력공사와 관계없는 정보 제공용 계산기입니다. 요금 기준일 2026-10-22.</p>
   </div>
 </footer>
-
+<nav class="tabbar" aria-label="주요 메뉴"><a href="index.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M16 11v4"/></svg>계산기</a><a href="discount.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.6"/></svg>할인</a><a href="rates.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM4 10h16M10 4v16"/></svg>요금표</a><a href="guide.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>조회·납부</a><a href="appliance.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>더보기</a></nav>
 <script src="calc.js"></script>
+<script src="app.js"></script>
 <script>
 (function(){
   'use strict';
-  var $ = function(id){ return document.getElementById(id); };
-  var fmt = function(n){ return Math.round(n).toLocaleString('ko-KR'); };
-  var TIER_COLOR = ['var(--t1)','var(--t2)','var(--t3)','var(--t4)'];
-  var STAGE_NAME = ['1단계','2단계','3단계','슈퍼유저'];
-
-  // 기본 월 = 오늘 월
-  try { $('month').value = String(new Date().getMonth() + 1); } catch(e){}
-
-  function readKwh(){
-    var v = String($('kwh').value).replace(/[^\d]/g,'');
-    return v === '' ? null : Math.min(99999, parseInt(v,10));
-  }
-  function getType(){
-    var r = document.querySelector('input[name="type"]:checked');
-    return r ? r.value : 'low';
-  }
-
-  function drawStairs(r){
-    // 계단: 구간 폭은 kWh 비례, 높이는 단가 비례. 마커는 현재 사용량.
-    var t = r.tiers, rate = ElecCalc.RATES[r.type];
-    var isPeak = r.season !== 'other';
-    var maxK = Math.max(isPeak ? 1150 : 700, Math.ceil(r.kwh * 1.08 / 50) * 50);
-    var steps = [
-      {from:0, to:t[0], p:rate.price10[0]/10},
-      {from:t[0], to:t[1], p:rate.price10[1]/10},
-      {from:t[1], to:isPeak ? Math.min(1000,maxK) : maxK, p:rate.price10[2]/10}
-    ];
-    if (isPeak && maxK > 1000) steps.push({from:1000, to:maxK, p:rate.super10/10});
-    var W = 700, H = 150, padB = 26, maxP = isPeak ? rate.super10/10 : rate.price10[2]/10;
-    var x = function(k){ return k / maxK * W; };
-    var y = function(p){ return H - padB - (p / maxP) * (H - padB - 12); };
-    var svg = '<svg viewBox="0 0 '+W+' '+H+'" role="img">';
-    steps.forEach(function(s,i){
-      var filled = Math.max(0, Math.min(r.kwh, s.to) - s.from);
-      svg += '<rect x="'+x(s.from)+'" y="'+y(s.p)+'" width="'+(x(s.to)-x(s.from))+'" height="'+(H-padB-y(s.p))+'" fill="'+TIER_COLOR[i]+'" opacity=".18"/>';
-      if (filled > 0) svg += '<rect x="'+x(s.from)+'" y="'+y(s.p)+'" width="'+(x(s.from+filled)-x(s.from))+'" height="'+(H-padB-y(s.p))+'" fill="'+TIER_COLOR[i]+'"/>';
-      svg += '<text x="'+(x(s.from)+4)+'" y="'+(y(s.p)-5)+'" font-size="13" font-weight="700" fill="currentColor">'+s.p.toFixed(1)+'원</text>';
-      if (s.from > 0) svg += '<text x="'+x(s.from)+'" y="'+(H-8)+'" font-size="12" text-anchor="middle" fill="currentColor" opacity=".7">'+s.from+'</text>';
-    });
-    var mx = x(Math.min(r.kwh, maxK));
-    svg += '<line class="marker" x1="'+mx+'" x2="'+mx+'" y1="4" y2="'+(H-padB)+'" stroke="currentColor" stroke-width="2.5"/>';
-    svg += '<text x="'+Math.min(Math.max(mx,30),W-30)+'" y="'+(H-8)+'" font-size="13" font-weight="800" text-anchor="middle" fill="currentColor">'+r.kwh+'kWh</text>';
-    svg += '</svg>';
-    $('stairs').innerHTML = svg;
-  }
-
+  var $=function(id){return document.getElementById(id);}, fmt=UI.fmt;
+  UI.fillMonths($('month')); UI.fillOptions($('welfare'), ElecCalc.WELFARE); UI.fillOptions($('family'), ElecCalc.FAMILY);
+  function type(){var r=document.querySelector('input[name=type]:checked');return r?r.value:'low';}
   function render(){
-    var kwh = readKwh();
-    var month = parseInt($('month').value,10);
-    if (kwh === null || kwh === 0){
-      $('total').textContent = '0';
-      $('perKwh').textContent = '';
-      $('breakdown').innerHTML = '<tr><td>한 달 사용량을 1kWh 이상 숫자로 입력하세요.</td></tr>';
-      $('stairs').innerHTML=''; $('toNext').textContent=''; $('compare').textContent='';
-      updateAppliance(); return;
-    }
-    var r = ElecCalc.calc(kwh, {type:getType(), month:month});
-    $('total').textContent = fmt(r.total);
-    var pill = $('stagePill');
-    pill.textContent = STAGE_NAME[r.stage-1];
-    pill.style.background = TIER_COLOR[r.stage-1];
-    $('perKwh').textContent = 'kWh당 약 ' + fmt(r.perKwh) + '원 · ' + r.typeLabel + ', ' + month + '월';
-
-    if (r.toNext !== null && r.toNext >= 0){
-      var nextName = r.stage === 1 ? '2단계' : (r.stage === 2 ? '3단계' : '슈퍼유저 구간');
-      $('toNext').textContent = nextName + '까지 ' + fmt(r.toNext) + 'kWh 남았습니다.';
-    } else if (r.stage === 4) {
-      $('toNext').textContent = '1,000kWh를 넘긴 ' + fmt(r.kwh - 1000) + 'kWh에 슈퍼유저 단가가 붙었습니다.';
-    } else {
-      $('toNext').textContent = '가장 높은 누진 구간입니다.';
-    }
-    drawStairs(r);
-
-    var rows = '';
-    rows += '<tr><td>기본요금<span class="sub">'+STAGE_NAME[Math.min(r.stage,3)-1]+' 구간 정액</span></td><td class="num">'+fmt(r.base)+'원</td></tr>';
-    var lineTxt = r.lines.filter(function(l){return l.kwh>0;}).map(function(l){ return l.name+' '+fmt(l.kwh)+'kWh × '+(l.price10/10).toFixed(1)+'원'; }).join(', ');
-    rows += '<tr><td>전력량요금<span class="sub">'+lineTxt+'</span></td><td class="num">'+fmt(r.energy)+'원</td></tr>';
-    rows += '<tr><td>기후환경요금<span class="sub">'+fmt(r.kwh)+'kWh × 9원</span></td><td class="num">'+fmt(r.climate)+'원</td></tr>';
-    rows += '<tr><td>연료비조정액<span class="sub">'+fmt(r.kwh)+'kWh × 5원</span></td><td class="num">'+fmt(r.fuel)+'원</td></tr>';
-    rows += '<tr class="sum"><td>전기요금계</td><td class="num">'+fmt(r.subtotal)+'원</td></tr>';
-    rows += '<tr><td>부가가치세<span class="sub">전기요금계의 10%, 원 미만 반올림</span></td><td class="num">'+fmt(r.vat)+'원</td></tr>';
-    rows += '<tr><td>전력산업기반기금<span class="sub">전기요금계의 2.7%, 10원 미만 버림</span></td><td class="num">'+fmt(r.fund)+'원</td></tr>';
-    rows += '<tr class="grand"><td>청구 예상액<span class="sub">10원 미만 버림</span></td><td class="num">'+fmt(r.total)+'원</td></tr>';
-    $('breakdown').innerHTML = rows;
-
-    // 하계/평상시 비교
-    var other = (month===7||month===8) ? ElecCalc.calc(kwh,{type:r.type,month:10}) : ElecCalc.calc(kwh,{type:r.type,month:7});
-    var diff = other.total - r.total;
-    if (month===7||month===8){
-      $('compare').textContent = '같은 사용량을 평상시 달에 쓰면 ' + fmt(other.total) + '원으로, 하계 완화 덕분에 ' + fmt(Math.max(0,diff)) + '원 적게 나옵니다.';
-    } else if (diff !== 0) {
-      $('compare').textContent = '같은 사용량을 7~8월에 쓰면 하계 완화가 적용돼 ' + fmt(other.total) + '원입니다.';
-    } else {
-      $('compare').textContent = '이 사용량은 7~8월에 써도 요금이 같습니다.';
-    }
-    updateAppliance();
+    var kwh=UI.num($('kwh').value), month=+$('month').value;
+    var opts={type:type(),month:month,welfare:$('welfare').value,family:$('family').value,autopay:$('autopay').checked,prevBill:UI.num($('prevBill').value)};
+    $('sumType').textContent=ElecCalc.RATES[opts.type].label;
+    if(!kwh){ $('total').textContent='0'; $('breakdown').innerHTML='<tr><td>한 달 사용량을 1kWh 이상 숫자로 입력하세요.</td></tr>'; $('stairs').innerHTML=''; $('toNext').textContent=''; $('compare').textContent=''; $('saving').hidden=true; $('sumCond').textContent=''; return; }
+    var r=ElecCalc.calc(kwh,opts), plain=ElecCalc.calc(kwh,{type:opts.type,month:month});
+    $('sumCond').textContent=fmt(kwh)+'kWh, '+month+'월';
+    $('total').textContent=fmt(r.total);
+    var p=$('stagePill'); p.textContent=UI.STAGE_NAME[r.stage-1]; p.style.background=UI.TIER_COLOR[r.stage-1];
+    $('perKwh').textContent='kWh당 약 '+fmt(r.perKwh)+'원';
+    var save=plain.total-r.total; $('saving').hidden=save<=0; if(save>0) $('saving').textContent='할인으로 '+fmt(save)+'원 줄었습니다 (할인 전 '+fmt(plain.total)+'원)';
+    $('stairs').innerHTML=UI.stairsSVG(r); $('toNext').textContent=UI.nextText(r);
+    $('breakdown').innerHTML=UI.breakdownRows(r);
+    var summer=(month===7||month===8), other=ElecCalc.calc(kwh,Object.assign({},opts,{month:summer?10:7}));
+    $('compare').textContent= summer ? '같은 사용량을 평상시 달에 쓰면 '+fmt(other.total)+'원입니다.' : (other.total!==r.total ? '같은 사용량을 7~8월에 쓰면 하계 완화로 '+fmt(other.total)+'원입니다.' : '이 사용량은 7~8월에도 요금이 같습니다.');
   }
-
-  function updateAppliance(){
-    var base = readKwh() || 0;
-    var w = parseFloat(String($('aW').value).replace(/[^\d.]/g,'')) || 0;
-    var h = parseFloat(String($('aH').value).replace(/[^\d.]/g,'')) || 0;
-    var d = parseFloat(String($('aD').value).replace(/[^\d.]/g,'')) || 0;
-    h = Math.min(h, 24); d = Math.min(d, 31);
-    var add = Math.round(w * h * d / 1000);
-    var opts = {type:getType(), month:parseInt($('month').value,10)};
-    if (add <= 0){ $('applOut').textContent = '소비전력, 하루 사용 시간, 사용일을 입력하세요.'; return; }
-    var before = ElecCalc.calc(base, opts).total;
-    var after = ElecCalc.calc(base + add, opts).total;
-    $('applOut').innerHTML = '한 달 약 <strong>' + fmt(add) + 'kWh</strong> 늘어나 요금이 <strong>' + fmt(after - before) + '원</strong> 더 나옵니다. <span class="note">(' + fmt(base) + ' → ' + fmt(base+add) + 'kWh, 청구 예상액 ' + fmt(after) + '원)</span>';
-  }
-
-  $('kwh').addEventListener('input', function(){
-    var raw = this.value.replace(/[^\d]/g,'');
-    if (raw !== this.value) this.value = raw;
-    render();
-  });
-  $('month').addEventListener('change', render);
-  document.querySelectorAll('input[name="type"]').forEach(function(el){ el.addEventListener('change', render); });
-  document.querySelectorAll('.chips button').forEach(function(b){
-    b.addEventListener('click', function(){ $('kwh').value = b.getAttribute('data-kwh'); render(); });
-  });
-  $('applyMeter').addEventListener('click', function(){
-    var p = parseInt(String($('prevRead').value).replace(/[^\d]/g,''),10);
-    var c = parseInt(String($('currRead').value).replace(/[^\d]/g,''),10);
-    if (isNaN(p) || isNaN(c)) { $('meterMsg').textContent = '전월 지침과 당월 지침을 모두 숫자로 입력하세요.'; return; }
-    if (c < p) { $('meterMsg').textContent = '당월 지침이 전월보다 작습니다. 계량기가 한 바퀴 돌았다면 고지서의 사용량을 직접 입력하세요.'; return; }
-    $('kwh').value = String(c - p);
-    $('meterMsg').textContent = '사용량 ' + fmt(c-p) + 'kWh를 넣었습니다.';
-    render();
-  });
-  $('aName').addEventListener('change', function(){ if (this.value !== '0') $('aW').value = this.value; else { $('aW').value=''; $('aW').focus(); } updateAppliance(); });
-  ['aW','aH','aD'].forEach(function(id){ $(id).addEventListener('input', updateAppliance); });
-  $('calcForm').addEventListener('submit', function(e){ e.preventDefault(); render(); });
-
+  $('kwh').addEventListener('input',function(){var v=this.value.replace(/[^\d]/g,'');if(v!==this.value)this.value=v;render();});
+  ['month','welfare','family'].forEach(function(id){$(id).addEventListener('change',render);});
+  $('autopay').addEventListener('change',function(){$('prevWrap').hidden=!this.checked; if(this.checked&&!$('prevBill').value){$('prevBill').value=String(ElecCalc.calc(UI.num($('kwh').value)||0,{type:type(),month:+$('month').value}).total);} render();});
+  $('prevBill').addEventListener('input',render);
+  document.querySelectorAll('input[name=type]').forEach(function(el){el.addEventListener('change',render);});
+  document.querySelectorAll('.chips button').forEach(function(b){b.addEventListener('click',function(){$('kwh').value=b.dataset.kwh;render();});});
+  $('calcForm').addEventListener('submit',function(e){e.preventDefault();render();});
   render();
-  
 })();
 </script>
+
 </body>
 </html>

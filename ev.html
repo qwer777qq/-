@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>전기차 충전요금 계산 2026 | 공공 급속·완속 kWh당 요금</title>
+<meta name="description" content="2026년 8월 개편된 공공 전기차 충전요금(완속 295원~초급속 393.1원)으로 1회 충전 비용과 한 달 비용을 계산하고, 집에서 충전할 때 늘어나는 전기요금과 비교합니다.">
+<link rel="canonical" href="https://elec.honeytipmagazine.com/ev.html">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14213D">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="꿀팁매거진">
+<meta property="og:title" content="전기차 충전요금 계산 2026 | 공공 급속·완속 kWh당 요금">
+<meta property="og:description" content="2026년 8월 개편된 공공 전기차 충전요금(완속 295원~초급속 393.1원)으로 1회 충전 비용과 한 달 비용을 계산하고, 집에서 충전할 때 늘어나는 전기요금과 비교합니다.">
+<meta property="og:url" content="https://elec.honeytipmagazine.com/ev.html">
+<meta property="og:image" content="https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "전기차 충전요금 계산 2026", "description": "2026년 8월 개편된 공공 전기차 충전요금(완속 295원~초급속 393.1원)으로 1회 충전 비용과 한 달 비용을 계산하고, 집에서 충전할 때 늘어나는 전기요금과 비교합니다.", "image": "https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "inLanguage": "ko-KR", "mainEntityOfPage": "https://elec.honeytipmagazine.com/ev.html", "author": {"@type": "Organization", "name": "꿀팁매거진", "url": "https://honeytipmagazine.com/"}, "publisher": {"@type": "Organization", "name": "꿀팁매거진", "url": "https://honeytipmagazine.com/"}}</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="bar"><a class="brand" href="index.html"><span class="bolt" aria-hidden="true"></span>전기요금 계산기</a><a class="home" href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></div>
+    <nav class="chips-nav" aria-label="전기요금 도구"><a href="index.html">요금 계산기</a><a href="discount.html">할인·감면</a><a href="appliance.html">가전·인덕션</a><a href="moving.html">이사 정산</a><a href="rates.html">요금표 2026</a><a href="ev.html" aria-current="page">전기차 충전</a><a href="guide.html">조회·납부</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<section class="hero">
+  <h1>전기차 충전요금 계산</h1>
+  <p class="lede">배터리 용량과 충전 범위만 넣으면 공공 충전기 출력별 단가로 1회 충전 비용과 한 달 비용을 계산합니다. 집에서 충전할 때 늘어나는 주택용 전기요금도 누진제를 반영해 비교합니다.</p>
+  <p class="basis">공공 충전 단가: 기후에너지환경부 공공 충전요금 개편(2026년 8월 1일 시행)</p>
+</section>
+
+<form class="card" id="evForm" novalidate>
+  <div class="row2">
+    <div class="field"><label for="battery">배터리 용량(kWh)</label><input id="battery" type="text" inputmode="decimal" value="77"><p class="hint">차량 제원표의 배터리 용량</p></div>
+    <div class="field"><label for="charger">충전기</label><select id="charger"></select></div>
+  </div>
+  <div class="row2">
+    <div class="field"><label for="from">충전 시작 잔량(%)</label><input id="from" type="text" inputmode="numeric" value="20"></div>
+    <div class="field"><label for="to">충전 목표(%)</label><input id="to" type="text" inputmode="numeric" value="80"></div>
+  </div>
+  <div class="row2">
+    <div class="field"><label for="eff">전비(km/kWh)</label><input id="eff" type="text" inputmode="decimal" value="5"></div>
+    <div class="field"><label for="km">한 달 주행거리(km)</label><input id="km" type="text" inputmode="numeric" value="1200"></div>
+  </div>
+  <div aria-live="polite">
+    <div class="total-line"><div class="total"><span id="once">0</span><small>원</small></div><div class="total-meta">1회 충전 비용 <span id="onceKwh"></span></div></div>
+    <table class="breakdown" style="margin-top:12px"><tbody id="evOut"></tbody></table>
+  </div>
+  <h3 style="margin:22px 0 8px;font-size:17px">집에서 완속 충전하면 (주택용 요금)</h3>
+  <div class="row2">
+    <div class="field"><label for="homeKwh">충전 빼고 집 평소 사용량(kWh)</label><input id="homeKwh" type="text" inputmode="numeric" value="300"></div>
+    <div class="field"><label for="month">월</label><select id="month"></select></div>
+  </div>
+  <p id="homeOut" class="saving"></p>
+  <p class="hint">아파트 공용 완속충전기나 별도 계량기(전기차 충전 전용 계약)를 쓰면 주택용 누진제가 아닌 별도 요금이 붙습니다.</p>
+</form>
+
+
+
+<article>
+  <h2>공공 전기차 충전요금표 (2026년 8월 1일부터)</h2>
+  <div class="tbl-scroll"><table class="rate-table">
+    <thead><tr><th>충전기 출력</th><th>kWh당 요금</th></tr></thead>
+    <tbody>
+      <tr><td>완속 30kW 미만</td><td>295.0원</td></tr>
+      <tr><td>급속 30~50kW 미만</td><td>307.2원</td></tr>
+      <tr><td>급속 50~100kW 미만</td><td>325.6원</td></tr>
+      <tr><td>급속 100~200kW 미만</td><td>348.4원</td></tr>
+      <tr><td>초급속 200kW 이상</td><td>393.1원</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">환경부(현 기후에너지환경부)가 운영하는 공공 충전기 기준입니다. 민간 충전사업자 요금과 회원·비회원 요금은 사업자마다 다르니 충전 앱에서 확인하세요.</p>
+
+  <h2>충전 비용 계산 방법</h2>
+  <p>1회 충전량은 <strong>배터리 용량 × (목표 % − 시작 %)</strong>입니다. 77kWh 배터리를 20%에서 80%까지 채우면 46.2kWh이고, 급속 100kW급(348.4원)이면 약 16,096원입니다. 실제로는 충전 손실이 있어 조금 더 나올 수 있습니다.</p>
+  <p>한 달 비용은 주행거리를 전비로 나눈 전력량에 단가를 곱합니다. 전비 5km/kWh로 한 달 1,200km를 달리면 240kWh가 필요합니다.</p>
+
+  <h2>집밥 충전이 늘 싼 건 아니다</h2>
+  <p>집 콘센트나 개인 완속충전기를 주택용 계량기에 물려 쓰면 충전량이 집 사용량에 더해져 누진 구간이 올라갑니다. 평소 300kWh를 쓰는 집이 240kWh를 더하면 540kWh가 되어 3단계 단가(307.3원)가 붙고 기본요금도 7,300원으로 바뀝니다. 그래서 늘어나는 요금이 공공 완속 충전보다 비싸질 수 있습니다. 위 계산기에서 집 사용량을 넣어 비교해 보세요.</p>
+
+  <h2 style="font-size:20px">확인한 자료</h2>
+  <ul class="sources"><li>기후에너지환경부 공공 전기차 충전요금 개편 발표(2026-07-01), 이투데이 보도 기준 단가</li></ul>
+</article>
+
+</main>
+<footer>
+  <div class="wrap">
+    <nav aria-label="사이트 정보"><a href="about.html">운영자·문의</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></nav>
+    <p>운영: 노마드 마케터 · 사업자등록번호 603-42-04620 · camerongchamp@gmail.com</p>
+    <p>한국전력공사와 관계없는 정보 제공용 계산기입니다. 요금 기준일 2026-10-22.</p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="주요 메뉴"><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M16 11v4"/></svg>계산기</a><a href="discount.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.6"/></svg>할인</a><a href="rates.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM4 10h16M10 4v16"/></svg>요금표</a><a href="guide.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>조회·납부</a><a href="appliance.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>더보기</a></nav>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id);}, fmt=UI.fmt;
+  $('charger').innerHTML=ElecCalc.EV_PUBLIC.map(function(c){return '<option value="'+c.id+'">'+c.label+' · '+c.price.toFixed(1)+'원</option>';}).join('');
+  $('charger').value='m100'; UI.fillMonths($('month'));
+  function n(id){return UI.num($(id).value)||0;}
+  function render(){
+    var c=ElecCalc.EV_PUBLIC.find(function(x){return x.id===$('charger').value;});
+    var bat=n('battery'), f=Math.min(100,n('from')), t=Math.min(100,n('to'));
+    var kwh=Math.max(0,bat*(t-f)/100), once=kwh*c.price;
+    $('once').textContent=fmt(once); $('onceKwh').textContent='('+(Math.round(kwh*10)/10)+'kWh)';
+    var need=n('eff')>0? n('km')/n('eff') : 0, month=need*c.price, per100=n('eff')>0? 100/n('eff')*c.price:0;
+    var rows='<tr><td>충전 단가<span class="sub">'+c.label+'</span></td><td class="amt">'+c.price.toFixed(1)+'원/kWh</td></tr>';
+    rows+='<tr><td>100km 주행 비용<span class="sub">전비 '+n('eff')+'km/kWh</span></td><td class="amt">'+fmt(per100)+'원</td></tr>';
+    rows+='<tr class="grand"><td>한 달 충전 비용<span class="sub">'+fmt(n('km'))+'km, '+fmt(need)+'kWh</span></td><td class="amt">'+fmt(month)+'원</td></tr>';
+    if(t<=f) rows='<tr><td>충전 목표(%)를 시작 잔량보다 크게 넣으세요.</td><td></td></tr>';
+    $('evOut').innerHTML=rows;
+    var home=n('homeKwh'), opts={month:+$('month').value}, b=ElecCalc.calc(home,opts), a=ElecCalc.calc(home+Math.round(need),opts);
+    var inc=a.total-b.total, slow=need*ElecCalc.EV_PUBLIC[0].price;
+    $('homeOut').textContent= need>0 ? '집 전기요금이 '+fmt(inc)+'원 늘어납니다 ('+fmt(b.total)+' → '+fmt(a.total)+'원). 공공 완속이면 '+fmt(slow)+'원입니다.' : '';
+  }
+  ['battery','from','to','eff','km','homeKwh'].forEach(function(id){$(id).addEventListener('input',render);});
+  ['charger','month'].forEach(function(id){$(id).addEventListener('change',render);});
+  $('evForm').addEventListener('submit',function(e){e.preventDefault();});
+  render();
+})();
+</script>
+
+</body>
+</html>

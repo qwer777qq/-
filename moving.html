@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>이사 전기요금 정산 계산 | 계량기 지침으로 정산액 미리 보기</title>
+<meta name="description" content="이사 당일 계량기 지침과 전월 지침으로 정산할 전기요금을 미리 계산하고, 한전ON·123 신고와 카드·계좌 납부 순서를 정리했습니다.">
+<link rel="canonical" href="https://elec.honeytipmagazine.com/moving.html">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14213D">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="꿀팁매거진">
+<meta property="og:title" content="이사 전기요금 정산 계산 | 계량기 지침으로 정산액 미리 보기">
+<meta property="og:description" content="이사 당일 계량기 지침과 전월 지침으로 정산할 전기요금을 미리 계산하고, 한전ON·123 신고와 카드·계좌 납부 순서를 정리했습니다.">
+<meta property="og:url" content="https://elec.honeytipmagazine.com/moving.html">
+<meta property="og:image" content="https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "이사 전기요금 정산 계산", "description": "이사 당일 계량기 지침과 전월 지침으로 정산할 전기요금을 미리 계산하고, 한전ON·123 신고와 카드·계좌 납부 순서를 정리했습니다.", "image": "https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "inLanguage": "ko-KR", "mainEntityOfPage": "https://elec.honeytipmagazine.com/moving.html", "author": {"@type": "Organization", "name": "꿀팁매거진", "url": "https://honeytipmagazine.com/"}, "publisher": {"@type": "Organization", "name": "꿀팁매거진", "url": "https://honeytipmagazine.com/"}}</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="bar"><a class="brand" href="index.html"><span class="bolt" aria-hidden="true"></span>전기요금 계산기</a><a class="home" href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></div>
+    <nav class="chips-nav" aria-label="전기요금 도구"><a href="index.html">요금 계산기</a><a href="discount.html">할인·감면</a><a href="appliance.html">가전·인덕션</a><a href="moving.html" aria-current="page">이사 정산</a><a href="rates.html">요금표 2026</a><a href="ev.html">전기차 충전</a><a href="guide.html">조회·납부</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<section class="hero">
+  <h1>이사 전기요금 정산 계산</h1>
+  <p class="lede">이사 날 계량기 지침과 전월 지침만 넣으면 정산할 전기요금을 미리 계산합니다. 한전이 안내하는 정산 방식(이사지침 − 전월지침으로 사용량 산정)을 따릅니다.</p>
+</section>
+
+<form class="card" id="mvForm" novalidate>
+  <div class="row2">
+    <div class="field"><label for="prev">전월 지침(고지서)</label><input id="prev" type="text" inputmode="numeric" placeholder="예: 12480" value="12480"></div>
+    <div class="field"><label for="curr">이사 당일 지침</label><input id="curr" type="text" inputmode="numeric" placeholder="예: 12650" value="12650"></div>
+  </div>
+  <div class="row2">
+    <div class="field"><label for="month">이사하는 달</label><select id="month"></select></div>
+    <div class="field"><span class="legend">계약 종류</span>
+      <div class="seg" role="radiogroup" aria-label="계약 종류"><label><input type="radio" name="type" value="low" checked><span>저압</span></label><label><input type="radio" name="type" value="high"><span>고압</span></label></div></div>
+  </div>
+  <p class="hint" id="msg" role="status"></p>
+  <div aria-live="polite">
+    <div class="total-line"><div class="total"><span id="total">0</span><small>원</small></div><div class="total-meta" id="usage"></div></div>
+    <table class="breakdown" style="margin-top:10px"><tbody id="breakdown"></tbody></table>
+  </div>
+</form>
+
+
+
+<article>
+  <h2>이사 전기요금 정산 순서</h2>
+  <ol>
+    <li><strong>이사 당일 계량기 지침을 확인합니다.</strong> 계량기 화면의 누적 숫자(kWh)를 사진으로 남겨 두면 분쟁을 막을 수 있습니다.</li>
+    <li><strong>한전ON 또는 123으로 신고합니다.</strong> 한전ON에서는 이사정산 메뉴, 전화는 국번 없이 123입니다.</li>
+    <li><strong>정산 요금을 냅니다.</strong> 신용카드로 바로 내거나, 지정한 계좌에서 정산일로부터 3영업일째에 한 번 출금되도록 고를 수 있습니다.</li>
+  </ol>
+  <h3>계산 방식</h3>
+  <p>한전ON 안내에 따르면 정산은 이사지침에서 전월지침을 뺀 사용량을 한 달 사용량으로 보고 요금을 계산합니다. 위 계산기도 같은 방식이라 기본요금이 한 달치로 붙습니다. 한전ON의 ‘단순계산’은 전출입자끼리 요금을 나누기 위한 참고용으로, 이용 기간을 일수로 따져 1개월 사용량을 추정하므로 결과가 다를 수 있습니다.</p>
+  <h3>집주인·새 세입자와 나눌 때</h3>
+  <p>관리비에 전기요금이 포함된 아파트는 관리사무소 정산이 따로 있습니다. 개별 계량기가 있는 원룸·다세대라면 이 계산 결과를 근거로 나가는 날까지의 요금을 정리하면 됩니다. 명의를 바꿔야 하면 <a href="guide.html#owner">명의변경 안내</a>를 보세요.</p>
+  <h2 style="font-size:20px">확인한 자료</h2>
+  <ul class="sources"><li><a href="https://online.kepco.co.kr/PRM061D00" rel="noopener" target="_blank">한전ON 주택용 이사요금 계산·납부안내</a> (2026-10-22 확인)</li></ul>
+</article>
+
+</main>
+<footer>
+  <div class="wrap">
+    <nav aria-label="사이트 정보"><a href="about.html">운영자·문의</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></nav>
+    <p>운영: 노마드 마케터 · 사업자등록번호 603-42-04620 · camerongchamp@gmail.com</p>
+    <p>한국전력공사와 관계없는 정보 제공용 계산기입니다. 요금 기준일 2026-10-22.</p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="주요 메뉴"><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M16 11v4"/></svg>계산기</a><a href="discount.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.6"/></svg>할인</a><a href="rates.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM4 10h16M10 4v16"/></svg>요금표</a><a href="guide.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>조회·납부</a><a href="appliance.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>더보기</a></nav>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id);}, fmt=UI.fmt;
+  UI.fillMonths($('month'));
+  function render(){
+    var p=UI.num($('prev').value), c=UI.num($('curr').value);
+    if(p===null||c===null){ $('msg').textContent='전월 지침과 이사 당일 지침을 숫자로 넣으세요.'; $('total').textContent='0'; $('breakdown').innerHTML=''; $('usage').textContent=''; return; }
+    if(c<p){ $('msg').textContent='이사 당일 지침이 전월 지침보다 작습니다. 숫자를 다시 확인하세요.'; $('total').textContent='0'; $('breakdown').innerHTML=''; $('usage').textContent=''; return; }
+    $('msg').textContent='';
+    var kwh=c-p, r=ElecCalc.calc(kwh,{type:document.querySelector('input[name=type]:checked').value,month:+$('month').value});
+    $('total').textContent=fmt(r.total); $('usage').textContent='사용량 '+fmt(kwh)+'kWh';
+    $('breakdown').innerHTML=UI.breakdownRows(r);
+  }
+  ['prev','curr'].forEach(function(id){$(id).addEventListener('input',function(){this.value=this.value.replace(/[^\d]/g,'');render();});});
+  $('month').addEventListener('change',render);
+  document.querySelectorAll('input[name=type]').forEach(function(e){e.addEventListener('change',render);});
+  $('mvForm').addEventListener('submit',function(e){e.preventDefault();});
+  render();
+})();
+</script>
+
+</body>
+</html>

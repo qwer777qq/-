@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>전기요금 할인 대상·금액 2026 | 복지할인·대가족·200kWh 감액 계산</title>
+<meta name="description" content="장애인·유공자·기초생활·차상위 복지할인, 5인 이상·출산·다자녀·생명유지장치 30% 할인, 200kWh 이하 감액, 자동이체 할인 금액과 신청 방법을 정리하고 우리 집 할인액을 계산합니다.">
+<link rel="canonical" href="https://elec.honeytipmagazine.com/discount.html">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#14213D">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="꿀팁매거진">
+<meta property="og:title" content="전기요금 할인 대상·금액 2026 | 복지할인·대가족·200kWh 감액 계산">
+<meta property="og:description" content="장애인·유공자·기초생활·차상위 복지할인, 5인 이상·출산·다자녀·생명유지장치 30% 할인, 200kWh 이하 감액, 자동이체 할인 금액과 신청 방법을 정리하고 우리 집 할인액을 계산합니다.">
+<meta property="og:url" content="https://elec.honeytipmagazine.com/discount.html">
+<meta property="og:image" content="https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "전기요금 할인 대상·금액 2026", "description": "장애인·유공자·기초생활·차상위 복지할인, 5인 이상·출산·다자녀·생명유지장치 30% 할인, 200kWh 이하 감액, 자동이체 할인 금액과 신청 방법을 정리하고 우리 집 할인액을 계산합니다.", "image": "https://elec.honeytipmagazine.com/og-electricity-bill-calculator-1200x630.png", "datePublished": "2026-10-22", "dateModified": "2026-10-22", "inLanguage": "ko-KR", "mainEntityOfPage": "https://elec.honeytipmagazine.com/discount.html", "author": {"@type": "Organization", "name": "꿀팁매거진", "url": "https://honeytipmagazine.com/"}, "publisher": {"@type": "Organization", "name": "꿀팁매거진", "url": "https://honeytipmagazine.com/"}}</script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="bar"><a class="brand" href="index.html"><span class="bolt" aria-hidden="true"></span>전기요금 계산기</a><a class="home" href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></div>
+    <nav class="chips-nav" aria-label="전기요금 도구"><a href="index.html">요금 계산기</a><a href="discount.html" aria-current="page">할인·감면</a><a href="appliance.html">가전·인덕션</a><a href="moving.html">이사 정산</a><a href="rates.html">요금표 2026</a><a href="ev.html">전기차 충전</a><a href="guide.html">조회·납부</a></nav>
+  </div>
+</header>
+<main class="wrap">
+<section class="hero">
+  <h1>전기요금 할인·감면 2026</h1>
+  <p class="lede">복지할인, 대가족·출산·다자녀 할인, 생명유지장치 할인, 200kWh 이하 감액, 자동이체 할인을 한 번에 정리하고 우리 집이 얼마나 줄어드는지 계산합니다.</p>
+  <p class="basis">금액 기준: 2026년 10월 22일 한전ON 전기요금계산기에서 대상별로 직접 계산해 확인</p>
+</section>
+
+<form class="card" id="dcForm" novalidate>
+  <h2 style="font-size:19px">우리 집 할인 계산</h2>
+  <div class="row2">
+    <div class="field"><label for="kwh">한 달 사용량(kWh)</label><input id="kwh" type="text" inputmode="numeric" value="350"></div>
+    <div class="field"><label for="month">사용 월</label><select id="month"></select></div>
+  </div>
+  <div class="row2">
+    <div class="field"><label for="welfare">복지할인</label><select id="welfare"></select></div>
+    <div class="field"><label for="family">대가족·생명유지장치</label><select id="family"></select></div>
+  </div>
+  <div class="seg" role="radiogroup" aria-label="계약 종류" style="margin-bottom:14px">
+    <label><input type="radio" name="type" value="low" checked><span>주택용 저압</span></label>
+    <label><input type="radio" name="type" value="high"><span>주택용 고압</span></label>
+  </div>
+  <div aria-live="polite">
+    <div class="total-line"><div class="total"><span id="total">0</span><small>원</small></div><div class="total-meta" id="before"></div></div>
+    <p class="saving" id="saving"></p>
+    <table class="breakdown" style="margin-top:10px"><tbody id="breakdown"></tbody></table>
+  </div>
+</form>
+
+
+
+<article>
+  <h2>전기요금 할인 대상과 금액 한눈에 보기</h2>
+  <p>주택용 전기요금 할인은 크게 두 갈래입니다. 정해진 금액을 빼 주는 <strong>정액 복지할인</strong>과 요금의 30%를 빼 주는 <strong>정률 할인</strong>입니다. 한 가구가 여러 할인에 해당하면 합쳐서 받지 않고 할인액이 큰 것 하나만 적용됩니다.</p>
+  <div class="tbl-scroll">
+  <table class="rate-table">
+    <thead><tr><th>대상</th><th>할인 방식</th><th>9~6월 한도</th><th>7~8월 한도</th></tr></thead>
+    <tbody>
+      <tr><td>장애인(중증)</td><td>정액</td><td>16,000원</td><td>20,000원</td></tr>
+      <tr><td>국가유공자·독립유공자·5·18 민주유공자</td><td>정액</td><td>16,000원</td><td>20,000원</td></tr>
+      <tr><td>기초생활수급자(생계·의료)</td><td>정액</td><td>16,000원</td><td>20,000원</td></tr>
+      <tr><td>기초생활수급자(주거·교육)</td><td>정액</td><td>10,000원</td><td>12,000원</td></tr>
+      <tr><td>차상위계층</td><td>정액</td><td>8,000원</td><td>10,000원</td></tr>
+      <tr><td>사회복지시설</td><td>30%</td><td>한도 없음</td><td>한도 없음</td></tr>
+      <tr><td>5인 이상 가구·출산가구·3자녀 이상</td><td>30%</td><td>16,000원</td><td>16,000원</td></tr>
+      <tr><td>생명유지장치 사용 가구</td><td>30%</td><td>한도 없음</td><td>한도 없음</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="note">정액 할인은 그달 요금보다 많이 빼 주지 않습니다. 예를 들어 장애인 가구가 9월에 150kWh를 쓰면 할인 전 요금이 23,670원인데, 할인 후 청구 예상액은 1,130원입니다.</p>
+
+  <h3>월 200kWh 이하 감액</h3>
+  <p>위 할인 대상 가구가 한 달에 200kWh 이하로 쓰면 할인과 별도로 저압은 4,000원, 고압은 2,500원을 먼저 빼 줍니다. 한전 요금표에서 ‘추가감액(구 필수사용량 보장공제)’이라고 안내하는 제도입니다. 이 감액은 7~8월에도 기준이 200kWh로 같습니다. 할인 대상이 아닌 일반 가구에는 적용되지 않습니다.</p>
+
+  <h3>자동이체 할인</h3>
+  <p>요금을 은행 계좌 자동이체로 내면 전월 납부액의 1%를 이번 달 전기요금계에서 빼 줍니다. 한 달 최대 1,000원입니다. 할인 뒤 금액에 부가세와 전력기금이 다시 계산되므로 실제로 줄어드는 금액은 조금 더 큽니다. 신청 방법은 <a href="guide.html#pay">납부·자동이체 안내</a>에 있습니다.</p>
+
+  <h2>할인 신청 방법</h2>
+  <ol>
+    <li><strong>한전ON 또는 한전ON 앱</strong>에서 로그인한 뒤 복지할인 메뉴에서 신청합니다. 고객번호가 필요합니다.</li>
+    <li><strong>전화</strong>는 국번 없이 123번으로 신청할 수 있습니다.</li>
+    <li>주민센터에서 복지 서비스를 신청할 때 전기요금 할인을 함께 신청하면 한전에 연계되는 경우가 있습니다. 이미 자동 연계된 가구도 있으니 고지서의 할인 항목부터 확인하세요.</li>
+  </ol>
+  <div class="callout">할인은 계약자 명의와 자격이 확인된 뒤 적용됩니다. 이사하거나 명의를 바꾸면 다시 신청해야 할 수 있습니다.</div>
+
+  <section class="faq" aria-labelledby="dcFaq">
+    <h2 id="dcFaq">자주 묻는 질문</h2>
+    <details><summary>복지할인과 대가족 할인을 같이 받을 수 있나요?</summary><p>아닙니다. 둘 다 해당하면 할인액이 큰 것 하나만 적용됩니다. 위 계산기에서 둘을 함께 고르면 실제로 적용될 큰 쪽만 보여줍니다.</p></details>
+    <details><summary>여름에 할인이 더 많은가요?</summary><p>정액 복지할인은 7~8월 한도가 더 큽니다. 장애인·유공자·기초생활(생계·의료)은 16,000원에서 20,000원으로 늘어납니다. 대가족류 할인의 16,000원 한도는 여름에도 같습니다.</p></details>
+    <details><summary>에너지바우처와 중복되나요?</summary><p>에너지바우처는 한전 할인과 별개 제도라 함께 받을 수 있습니다. 바우처 사용분은 이 계산기에 반영하지 않았습니다.</p></details>
+  </section>
+
+  <h2 style="font-size:20px">확인한 자료</h2>
+  <ul class="sources">
+    <li><a href="https://online.kepco.co.kr/PRM033D00" rel="noopener" target="_blank">한전ON 전기요금계산기</a>: 대상별 할인액·200kWh 이하 감액·중복 규칙을 49개 사례로 대조 (2026-10-22)</li>
+    <li><a href="https://cyber.kepco.co.kr/ckepco/front/jsp/CY/E/E/CYEEHP00101.jsp" rel="noopener" target="_blank">한전 사이버지점 주택용 전기요금표</a>: 추가감액 제도 안내</li>
+  </ul>
+</article>
+
+</main>
+<footer>
+  <div class="wrap">
+    <nav aria-label="사이트 정보"><a href="about.html">운영자·문의</a><a href="privacy.html">개인정보처리방침</a><a href="terms.html">이용약관</a><a href="https://honeytipmagazine.com/">꿀팁매거진 홈</a></nav>
+    <p>운영: 노마드 마케터 · 사업자등록번호 603-42-04620 · camerongchamp@gmail.com</p>
+    <p>한국전력공사와 관계없는 정보 제공용 계산기입니다. 요금 기준일 2026-10-22.</p>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="주요 메뉴"><a href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M8 15h2M12 15h2M16 11v4"/></svg>계산기</a><a href="discount.html" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-8-8V4h8z"/><circle cx="8" cy="8" r="1.6"/></svg>할인</a><a href="rates.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 4h16v16H4zM4 10h16M10 4v16"/></svg>요금표</a><a href="guide.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg>조회·납부</a><a href="appliance.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>더보기</a></nav>
+<script src="calc.js"></script>
+<script src="app.js"></script>
+<script>
+(function(){
+  'use strict';
+  var $=function(id){return document.getElementById(id);}, fmt=UI.fmt;
+  UI.fillMonths($('month')); UI.fillOptions($('welfare'),ElecCalc.WELFARE); UI.fillOptions($('family'),ElecCalc.FAMILY);
+  $('welfare').value='disabled';
+  function render(){
+    var kwh=UI.num($('kwh').value)||0, t=document.querySelector('input[name=type]:checked').value, m=+$('month').value;
+    var r=ElecCalc.calc(kwh,{type:t,month:m,welfare:$('welfare').value,family:$('family').value}), p=ElecCalc.calc(kwh,{type:t,month:m});
+    $('total').textContent=fmt(r.total); $('before').textContent='할인 전 '+fmt(p.total)+'원';
+    $('saving').textContent= p.total>r.total ? fmt(p.total-r.total)+'원 줄어듭니다' : '선택한 조건에서는 할인액이 없습니다';
+    $('breakdown').innerHTML=UI.breakdownRows(r);
+  }
+  $('kwh').addEventListener('input',function(){this.value=this.value.replace(/[^\d]/g,'');render();});
+  ['month','welfare','family'].forEach(function(id){$(id).addEventListener('change',render);});
+  document.querySelectorAll('input[name=type]').forEach(function(e){e.addEventListener('change',render);});
+  $('dcForm').addEventListener('submit',function(e){e.preventDefault();});
+  render();
+})();
+</script>
+
+</body>
+</html>
